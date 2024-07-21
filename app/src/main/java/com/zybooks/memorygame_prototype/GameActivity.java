@@ -19,7 +19,7 @@ public class GameActivity extends AppCompatActivity {
         String level = getIntent().getStringExtra("level");
         int levelNumber = getIntent().getIntExtra("level_number", 1);
 
-        Log.d(TAG, "Level: " + level + ", Level Number: " + levelNumber);
+        Log.d(TAG, "GameActivity onCreate: Level: " + level + ", Level Number: " + levelNumber);
 
         TextView levelTitle = findViewById(R.id.level_title);
         levelTitle.setText(level.substring(0, 1).toUpperCase() + level.substring(1) + " Level " + levelNumber);
@@ -35,5 +35,7 @@ public class GameActivity extends AppCompatActivity {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, gameFragment);
         transaction.commit();
+
+        Log.d(TAG, "GameActivity Fragment transaction committed.");
     }
 }
