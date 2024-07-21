@@ -81,7 +81,9 @@ public class GameFragment extends Fragment {
             params.height = 0;
             params.rowSpec = GridLayout.spec(GridLayout.UNDEFINED, 1f);
             params.columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1f);
+            params.setMargins(4, 4, 4, 4); // Add margins to create spacing between blocks
             gridItem.setLayoutParams(params);
+            gridItem.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
             int finalI = i;
             gridItem.setOnClickListener(v -> toggleCell(finalI, gridItem));
             gameGrid.addView(gridItem);
