@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -20,6 +19,15 @@
             android:exported="false" />
         <activity
             android:name=".GameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EasyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MediumActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HardActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

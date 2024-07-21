@@ -14,17 +14,17 @@ public class MainActivity extends AppCompatActivity {
 
         Button easyButton = findViewById(R.id.easyButton);
         easyButton.setOnClickListener(v -> {
-            startActivity(new Intent(this, GameActivity.class).putExtra("level", "easy"));
+            startActivity(new Intent(this, EasyActivity.class));
         });
 
         Button mediumButton = findViewById(R.id.mediumButton);
         mediumButton.setOnClickListener(v -> {
-            startActivity(new Intent(this, GameActivity.class).putExtra("level", "medium"));
+            startActivity(new Intent(this, MediumActivity.class));
         });
 
         Button hardButton = findViewById(R.id.hardButton);
         hardButton.setOnClickListener(v -> {
-            startActivity(new Intent(this, GameActivity.class).putExtra("level", "hard"));
+            startActivity(new Intent(this, HardActivity.class));
         });
 
         Button settingsButton = findViewById(R.id.settingsButton);
