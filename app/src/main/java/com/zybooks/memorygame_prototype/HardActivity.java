@@ -12,6 +12,9 @@ public class HardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hard);
 
+        Button backButton = findViewById(R.id.back_button);
+        backButton.setOnClickListener(v -> finish());
+
         Button level1Button = findViewById(R.id.level_1_button);
         level1Button.setOnClickListener(v -> startGameActivity(1));
 
