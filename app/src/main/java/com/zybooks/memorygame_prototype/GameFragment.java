@@ -149,7 +149,7 @@ public class GameFragment extends Fragment {
             gridItem.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
         } else {
             userPattern.add(cellIndex);
-            gridItem.setBackgroundColor(getResources().getColor(android.R.color.holo_blue_light));
+            gridItem.setBackgroundColor(getResources().getColor(android.R.color.holo_red_light));
         }
     }
 
