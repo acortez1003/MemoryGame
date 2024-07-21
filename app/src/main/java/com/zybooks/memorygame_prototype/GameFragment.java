@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -94,28 +95,50 @@ public class GameFragment extends Fragment {
 
     private void loadPattern(View view) {
         Log.d(TAG, "GameFragment loadPattern: Loading pattern.");
-        // Temporary: Hardcode pattern for testing
-        if ("easy".equals(level)) {
-            pattern.add(0);
-            pattern.add(1);
-            pattern.add(4);
-            pattern.add(5);
-        } else if ("medium".equals(level)) {
-            pattern.add(0);
-            pattern.add(1);
-            pattern.add(2);
-            pattern.add(4);
-            pattern.add(5);
-            pattern.add(6);
-        } else if ("hard".equals(level)) {
-            pattern.add(0);
-            pattern.add(1);
-            pattern.add(2);
-            pattern.add(3);
-            pattern.add(4);
-            pattern.add(5);
-            pattern.add(6);
-            pattern.add(7);
+
+        pattern = new HashSet<>();
+
+        // Define unique patterns for each level
+        switch (level) {
+            case "easy":
+                switch (levelNumber) {
+                    case 1:
+                        pattern.addAll(Arrays.asList(1, 4, 9, 15));
+                        break;
+                    case 2:
+                        pattern.addAll(Arrays.asList(0, 5, 6, 11));
+                        break;
+                    case 3:
+                        pattern.addAll(Arrays.asList(2, 6, 12, 13));
+                        break;
+                }
+                break;
+            case "medium":
+                switch (levelNumber) {
+                    case 1:
+                        pattern.addAll(Arrays.asList(0, 6, 13, 19, 21));
+                        break;
+                    case 2:
+                        pattern.addAll(Arrays.asList(1, 4, 8, 10, 22));
+                        break;
+                    case 3:
+                        pattern.addAll(Arrays.asList(2, 6, 9, 15, 23));
+                        break;
+                }
+                break;
+            case "hard":
+                switch (levelNumber) {
+                    case 1:
+                        pattern.addAll(Arrays.asList(1, 5, 9, 12, 21, 29));
+                        break;
+                    case 2:
+                        pattern.addAll(Arrays.asList(3, 7, 16, 23, 24, 26, 34));
+                        break;
+                    case 3:
+                        pattern.addAll(Arrays.asList(0, 3, 11, 14, 18, 28, 31));
+                        break;
+                }
+                break;
         }
 
         Log.d(TAG, "GameFragment loadPattern: Pattern loaded: " + pattern.toString());
@@ -131,7 +154,7 @@ public class GameFragment extends Fragment {
         }
 
         // Hide the pattern after 3 seconds
-        new Handler().postDelayed(() -> hidePattern(gameGrid), 3000);
+        new Handler().postDelayed(() -> hidePattern(gameGrid), 2500);
     }
 
     private void hidePattern(GridLayout gameGrid) {
@@ -149,7 +172,7 @@ public class GameFragment extends Fragment {
             gridItem.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
         } else {
             userPattern.add(cellIndex);
-            gridItem.setBackgroundColor(getResources().getColor(android.R.color.holo_red_light));
+            gridItem.setBackgroundColor(getResources().getColor(android.R.color.holo_blue_light));
         }
     }
 
@@ -157,6 +180,10 @@ public class GameFragment extends Fragment {
         Log.d(TAG, "GameFragment checkPattern: Checking pattern.");
         if (pattern.equals(userPattern)) {
             Toast.makeText(getContext(), "Correct!", Toast.LENGTH_SHORT).show();
+            new Handler().postDelayed(() -> {
+                // Navigate back to the level selection page
+                getActivity().finish();
+            }, 2000);
         } else {
             Toast.makeText(getContext(), "Incorrect, try again.", Toast.LENGTH_SHORT).show();
         }
