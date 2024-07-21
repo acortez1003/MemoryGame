@@ -18,21 +18,24 @@
         android:id="@+id/easyButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Easy" />
+        android:text="Easy"
+        android:background="@drawable/rounded_button" />
 
     <Button
         android:id="@+id/mediumButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Medium"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_button" />
 
     <Button
         android:id="@+id/hardButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Hard"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_button" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -45,13 +48,19 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Stats" />
+            android:text="Stats"
+            android:background="@drawable/rounded_button" />
+
+        <View
+            android:layout_width="24dp"
+            android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/settingsButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Settings" />
+            android:text="Settings"
+            android:background="@drawable/rounded_button" />
     </LinearLayout>
 </LinearLayout>
