@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MemoryGame_Prototype</string>
+    <string-array name="spinner_array">
+        <item>Color 1</item>
+        <item>Color 2</item>
+        <item>Color 3</item>
+    </string-array>
 </resources>
