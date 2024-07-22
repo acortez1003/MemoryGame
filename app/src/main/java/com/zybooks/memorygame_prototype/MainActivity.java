@@ -31,10 +31,5 @@ public class MainActivity extends AppCompatActivity {
         settingsButton.setOnClickListener(v -> {
             startActivity(new Intent(this, SettingsActivity.class));
         });
-
-        Button statsButton = findViewById(R.id.statsButton);
-        statsButton.setOnClickListener(v -> {
-            startActivity(new Intent(this, StatsActivity.class));
-        });
     }
 }
