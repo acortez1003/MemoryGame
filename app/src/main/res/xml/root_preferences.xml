@@ -6,7 +6,7 @@
         app:title="@string/pref_title_theme" />
     <ListPreference
         app:defaultValue="red"
-        app:entries="@array/spinner_array"
+        app:entries="@array/pref_color_selection"
         app:entryValues="@array/pref_color_selection_values"
         app:key="color_selection"
         app:title="@string/pref_title_color_selection"

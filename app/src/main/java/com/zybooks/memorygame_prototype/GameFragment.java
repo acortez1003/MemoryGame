@@ -1,5 +1,6 @@
 package com.zybooks.memorygame_prototype;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.preference.PreferenceManager;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -27,6 +29,7 @@ public class GameFragment extends Fragment {
     private Set<Integer> pattern;
     private Set<Integer> userPattern;
     private GridLayout gameGrid;
+    private int selectedColor;
 
     @Nullable
     @Override
@@ -74,6 +77,8 @@ public class GameFragment extends Fragment {
 
         gameGrid.setRowCount(rowCount);
         gameGrid.setColumnCount(columnCount);
+
+        selectedColor = getSelectedColor();
 
         for (int i = 0; i < rowCount * columnCount; i++) {
             Button gridItem = new Button(getContext());
@@ -172,7 +177,7 @@ public class GameFragment extends Fragment {
             gridItem.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
         } else {
             userPattern.add(cellIndex);
-            gridItem.setBackgroundColor(getResources().getColor(android.R.color.holo_blue_light));
+            gridItem.setBackgroundColor(selectedColor);
         }
     }
 
@@ -187,5 +192,27 @@ public class GameFragment extends Fragment {
         } else {
             Toast.makeText(getContext(), "Incorrect, try again.", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private int getSelectedColor() {
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        String colorValue = sharedPrefs.getString("color_selection", "color_blue");
+
+        int colorId;
+        switch (colorValue) {
+            case "color_blue":
+                colorId = android.R.color.holo_blue_light;
+                break;
+            case "color_purple":
+                colorId = android.R.color.holo_purple;
+                break;
+            case "color_green":
+                colorId = android.R.color.holo_green_light;
+                break;
+            default:
+                colorId = android.R.color.holo_blue_light; // default color
+                break;
+        }
+        return getResources().getColor(colorId);
     }
 }

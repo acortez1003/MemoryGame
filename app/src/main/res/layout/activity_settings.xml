@@ -10,6 +10,8 @@
         android:id="@+id/back_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
         android:text="Back" />
 
     <!-- Preference Fragment -->
@@ -24,5 +26,8 @@
         android:id="@+id/reset_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reset Levels" />
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="@color/red"
+        android:text="@string/reset_button" />
 </LinearLayout>
