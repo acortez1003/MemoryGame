@@ -1,10 +1,13 @@
 package com.zybooks.memorygame_prototype;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.preference.PreferenceManager;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -31,5 +34,14 @@ public class MainActivity extends AppCompatActivity {
         settingsButton.setOnClickListener(v -> {
             startActivity(new Intent(this, SettingsActivity.class));
         });
+
+        // Change the theme if preference is true
+        SharedPreferences sharedPrefs = PreferenceManager
+                .getDefaultSharedPreferences(this);
+        boolean darkTheme = sharedPrefs.getBoolean("dark_theme", false);
+        if (darkTheme) {
+            AppCompatDelegate.setDefaultNightMode(
+                    AppCompatDelegate.MODE_NIGHT_YES);
+        }
     }
 }

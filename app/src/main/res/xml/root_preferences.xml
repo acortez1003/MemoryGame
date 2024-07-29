@@ -1,0 +1,15 @@
+<PreferenceScreen
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <SwitchPreferenceCompat
+        app:key="dark_theme"
+        app:title="@string/pref_title_theme" />
+    <ListPreference
+        app:defaultValue="red"
+        app:entries="@array/spinner_array"
+        app:entryValues="@array/pref_color_selection_values"
+        app:key="color_selection"
+        app:title="@string/pref_title_color_selection"
+        app:useSimpleSummaryProvider="true" />
+
+</PreferenceScreen>
