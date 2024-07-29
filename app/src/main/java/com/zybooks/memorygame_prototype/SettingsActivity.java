@@ -1,9 +1,12 @@
 package com.zybooks.memorygame_prototype;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.preference.PreferenceFragmentCompat;
@@ -21,13 +24,12 @@ public class SettingsActivity extends AppCompatActivity {
                     .replace(R.id.settings_container, new SettingsFragment())
                     .commit();
         }
-        // Set up the back button
+
         Button backButton = findViewById(R.id.back_button);
         backButton.setOnClickListener(v -> onBackPressed());
 
-        // TODO: Set up the reset button
         Button resetButton = findViewById(R.id.reset_button);
-        resetButton.setOnClickListener(v -> resetLevels());
+        resetButton.setOnClickListener(v -> showResetConfirmationDialog());
     }
     public static class SettingsFragment extends PreferenceFragmentCompat {
         @Override
@@ -50,7 +52,20 @@ public class SettingsActivity extends AppCompatActivity {
         }
     }
     private void resetLevels() {
-        // Implement the logic to reset levels here
+        SharedPreferences sharedPreferences = getSharedPreferences("LevelCompletion", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
+
         Toast.makeText(this, "Levels have been reset", Toast.LENGTH_SHORT).show();
+    }
+
+    private void showResetConfirmationDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle("Reset App")
+                .setMessage("Are you sure you want to reset the app? This will clear all saved progress.")
+                .setPositiveButton("Yes", (dialog, which) -> resetLevels())
+                .setNegativeButton("No", null) // Do nothing if "No" is clicked
+                .show();
     }
 }

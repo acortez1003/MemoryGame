@@ -9,34 +9,46 @@
         android:id="@+id/back_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Back" />
+        android:text="@string/back" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hard Levels"
+        android:text="@string/hard_lvl"
         android:textSize="24sp"
         android:layout_gravity="center"
         android:layout_marginBottom="24dp"/>
 
-    <Button
-        android:id="@+id/level_1_button"
+    <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Level 1"
-        android:layout_marginBottom="8dp"/>
+        android:alignmentMode="alignMargins"
+        android:columnCount="3"
+        android:rowCount="1"
+        android:columnOrderPreserved="false">
 
-    <Button
-        android:id="@+id/level_2_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Level 2"
-        android:layout_marginBottom="8dp"/>
+        <Button
+            android:id="@+id/hard_lvl_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="@string/lvl_1"
+            android:layout_margin="8dp"/>
 
-    <Button
-        android:id="@+id/level_3_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Level 3"
-        android:layout_marginBottom="8dp"/>
+        <Button
+            android:id="@+id/hard_lvl_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="@string/lvl_2"
+            android:layout_margin="8dp"/>
+
+        <Button
+            android:id="@+id/hard_lvl_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="@string/lvl_3"
+            android:layout_margin="8dp"/>
+    </GridLayout>
 </LinearLayout>

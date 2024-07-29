@@ -1,5 +1,16 @@
 <resources>
     <string name="app_name">MemoryGame_Prototype</string>
+    <string name="app_title">Memory Game</string>
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
+    <string name="back">Back</string>
+    <string name="easy_lvl">Easy Levels</string>
+    <string name="medium_lvl">Medium Levels</string>
+    <string name="hard_lvl">Hard Levels</string>
+    <string name="lvl_1">Level 1</string>
+    <string name="lvl_2">Level 2</string>
+    <string name="lvl_3">Level 3</string>
 
     <!-- Settings -->
     <string name="reset_button">RESET</string>

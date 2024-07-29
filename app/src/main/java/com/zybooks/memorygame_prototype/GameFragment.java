@@ -1,5 +1,6 @@
 package com.zybooks.memorygame_prototype;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
@@ -185,6 +186,13 @@ public class GameFragment extends Fragment {
         Log.d(TAG, "GameFragment checkPattern: Checking pattern.");
         if (pattern.equals(userPattern)) {
             Toast.makeText(getContext(), "Correct!", Toast.LENGTH_SHORT).show();
+
+            // mark level as completed
+            SharedPreferences sharedPreferences = getActivity().getSharedPreferences("LevelCompletion", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean(level + "_level_" + levelNumber + "_completed", true);
+            editor.apply();
+
             new Handler().postDelayed(() -> {
                 // Navigate back to the level selection page
                 getActivity().finish();
